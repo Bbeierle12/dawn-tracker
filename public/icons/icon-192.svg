@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="dawn" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a0a2e"/>
+      <stop offset="40%" style="stop-color:#ff6b35"/>
+      <stop offset="70%" style="stop-color:#f7931e"/>
+      <stop offset="100%" style="stop-color:#ffcc02"/>
+    </linearGradient>
+  </defs>
+  <circle cx="96" cy="96" r="96" fill="url(#dawn)"/>
+  <circle cx="96" cy="80" r="40" fill="#ffcc02"/>
+  <path d="M96 30 L100 50 L96 45 L92 50 Z" fill="#ffcc02"/>
+  <path d="M140 60 L125 72 L128 68 L122 70 Z" fill="#ffcc02"/>
+  <path d="M52 60 L67 72 L64 68 L70 70 Z" fill="#ffcc02"/>
+  <path d="M150 96 L130 96 L135 92 L130 88 Z" fill="#ffcc02"/>
+  <path d="M42 96 L62 96 L57 92 L62 88 Z" fill="#ffcc02"/>
+  <text x="96" y="160" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">BCOD</text>
+</svg>

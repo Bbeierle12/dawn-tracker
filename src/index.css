@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@keyframes flip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes shake-intense {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-10px, -5px) rotate(-1deg); }
+  20% { transform: translate(10px, 5px) rotate(1deg); }
+  30% { transform: translate(-10px, 5px) rotate(-1deg); }
+  40% { transform: translate(10px, -5px) rotate(1deg); }
+  50% { transform: translate(-5px, 10px) rotate(-2deg); }
+  60% { transform: translate(5px, -10px) rotate(2deg); }
+  70% { transform: translate(-10px, 5px) rotate(-1deg); }
+  80% { transform: translate(10px, 5px) rotate(1deg); }
+  90% { transform: translate(-5px, -5px) rotate(-1deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 53, 0.8); }
+}
+
+.animate-flip {
+  animation: flip 0.3s ease-in-out;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-shake-intense {
+  animation: shake-intense 0.3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.digit-container {
+  perspective: 1000px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
