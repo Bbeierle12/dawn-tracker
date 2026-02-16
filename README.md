@@ -1,16 +1,71 @@
-# React + Vite
+# Dawn Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A solar and lunar almanac that tracks astronomical events, sunrise/sunset patterns, atmospheric conditions, and observation quality — built as a Progressive Web App.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-time countdown** to the next astronomical event with sun/moon position tracking
+- **Moon phase visualization** with illumination percentage and 8-phase display
+- **Atmospheric conditions monitoring** via Open-Meteo API — cloud cover, visibility, humidity, and observation scoring
+- **Historical pattern analysis** with statistical trend detection (daylight trends, moon-cloud correlation, sunrise shifts)
+- **PWA support** with background alarm notifications, escalating alarm sequence, and installable web app
+- **Five views**: Today, Patterns, Stats, Atmosphere, History
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19, Vite
+- **State**: Zustand (persisted to localStorage)
+- **Charts**: Recharts
+- **Astronomy**: SunCalc
+- **Styling**: Tailwind CSS 4
+- **Audio**: Howler.js
+- **PWA**: vite-plugin-pwa with Workbox
+- **Background Processing**: Web Workers
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Other scripts:
+
+```bash
+npm run build    # Production build
+npm run preview  # Preview production build
+npm run lint     # ESLint
+```
+
+## Architecture
+
+```
+src/
+├── components/
+│   ├── views/          — TodayView, HistoryView, AtmosphereView, PatternsView, StatsView
+│   ├── MoonPhase       — Moon phase SVG visualization
+│   ├── SunPosition     — Sun altitude/azimuth indicator
+│   ├── Countdown       — Next-event countdown timer
+│   ├── Timeline        — Daily astronomical event timeline
+│   └── ...             — Sidebar, AlarmModal, InstallPrompt, etc.
+├── hooks/
+│   ├── useAstronomy    — Solar/lunar times, positions, and event timeline
+│   ├── useAtmosphere   — Atmospheric data fetching with 15-min cache
+│   ├── useAlarm        — Alarm triggering with 4-phase escalation
+│   ├── useCountdown    — Generic countdown timer
+│   └── useSunrise      — Dawn/twilight time retrieval
+├── stores/
+│   ├── alarmStore      — Alarm state, snooze tracking
+│   ├── locationStore   — Lat/lng persistence
+│   ├── historyStore    — Daily astronomical records with backfill
+│   ├── patternsStore   — Pattern detection results
+│   └── atmosphereStore — Cached atmospheric data
+├── utils/
+│   ├── astronomy       — SunCalc wrappers for solar/lunar calculations
+│   ├── atmosphere      — Open-Meteo API client and observation scoring
+│   ├── patterns        — Statistical pattern detection (regression, correlation)
+│   ├── dawn            — Dawn time helpers
+│   └── audio           — Howler.js sound management and notifications
+└── workers/
+    └── alarmWorker     — Background alarm timing via Web Worker
+```
