@@ -75,13 +75,15 @@ export function PlantingCalendarView() {
         <Fact
           label="Last Spring Frost"
           value={formatFrostDate(frostDates?.lastSpringFrost)}
-          sub={frostDates ? (frostDates.source === 'manual' ? 'manual' : `${frostDates.years}-yr avg`) : null}
+          sub={frostDates?.spring ? `90% safe by ${formatFrostDate(frostDates.spring.p90)}`
+            : frostDates ? (frostDates.source === 'manual' ? 'manual' : `${frostDates.years}-yr avg`) : null}
           icon="❄️"
         />
         <Fact
           label="First Fall Frost"
           value={formatFrostDate(frostDates?.firstFallFrost)}
-          sub={frostDates ? (frostDates.source === 'manual' ? 'manual' : 'avg') : null}
+          sub={frostDates?.fall ? `90% safe by ${formatFrostDate(frostDates.fall.p10)}`
+            : frostDates ? (frostDates.source === 'manual' ? 'manual' : 'avg') : null}
           icon="🍂"
         />
       </div>

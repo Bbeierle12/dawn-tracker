@@ -15,14 +15,19 @@
  * tender crops and let the guard do the location-aware trimming.
  *
  * `daysToMaturity` is a typical value for a common variety; real seed packets vary.
- * Sources: USDA/extension planting guides, Johnny's & Old Farmer's Almanac calendars.
+ *
+ * PROVENANCE — `source` is an honest self-assessment, NOT a per-crop citation:
+ *   'standard' — timing follows widely-published extension/almanac practice
+ *   'estimate' — my approximation, lower confidence, due for validation
+ * Replacing these with cited, per-crop extension data is tracked validation work.
+ * Sources consulted in aggregate: USDA/extension planting guides, Johnny's, OFA.
  */
 
 export const CROPS = [
   // ---------------- Warm-season / frost-tender ----------------
   {
     id: 'tomato', name: 'Tomato', emoji: '🍅', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 75,
+    tender: true, daysToMaturity: 75, source: 'standard',
     windows: [
       { method: 'start-indoors', ref: 'LSF', start: -8, end: -6 },
       { method: 'transplant', ref: 'LSF', start: 1, end: 30 },
@@ -31,7 +36,7 @@ export const CROPS = [
   },
   {
     id: 'pepper', name: 'Pepper', emoji: '🌶️', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 70,
+    tender: true, daysToMaturity: 70, source: 'standard',
     windows: [
       { method: 'start-indoors', ref: 'LSF', start: -10, end: -8 },
       { method: 'transplant', ref: 'LSF', start: 2, end: 28 },
@@ -40,7 +45,7 @@ export const CROPS = [
   },
   {
     id: 'eggplant', name: 'Eggplant', emoji: '🍆', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 80,
+    tender: true, daysToMaturity: 80, source: 'standard',
     windows: [
       { method: 'start-indoors', ref: 'LSF', start: -9, end: -7 },
       { method: 'transplant', ref: 'LSF', start: 2, end: 26 },
@@ -49,7 +54,7 @@ export const CROPS = [
   },
   {
     id: 'cucumber', name: 'Cucumber', emoji: '🥒', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 55,
+    tender: true, daysToMaturity: 55, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 1, end: 30 },
     ],
@@ -57,7 +62,7 @@ export const CROPS = [
   },
   {
     id: 'zucchini', name: 'Zucchini / Summer Squash', emoji: '🥒', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 50,
+    tender: true, daysToMaturity: 50, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 1, end: 30 },
     ],
@@ -65,7 +70,7 @@ export const CROPS = [
   },
   {
     id: 'winter-squash', name: 'Winter Squash', emoji: '🎃', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 95,
+    tender: true, daysToMaturity: 95, source: 'estimate',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 2, end: 20 },
     ],
@@ -73,7 +78,7 @@ export const CROPS = [
   },
   {
     id: 'pumpkin', name: 'Pumpkin', emoji: '🎃', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 100,
+    tender: true, daysToMaturity: 100, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 2, end: 18 },
     ],
@@ -81,7 +86,7 @@ export const CROPS = [
   },
   {
     id: 'melon', name: 'Cantaloupe / Melon', emoji: '🍈', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 80,
+    tender: true, daysToMaturity: 80, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 2, end: 22 },
     ],
@@ -89,7 +94,7 @@ export const CROPS = [
   },
   {
     id: 'watermelon', name: 'Watermelon', emoji: '🍉', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 85,
+    tender: true, daysToMaturity: 85, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 2, end: 22 },
     ],
@@ -97,7 +102,7 @@ export const CROPS = [
   },
   {
     id: 'bush-bean', name: 'Bush Bean', emoji: '🫘', category: 'Legume',
-    tender: true, daysToMaturity: 55,
+    tender: true, daysToMaturity: 55, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 0, end: 34 },
     ],
@@ -105,7 +110,7 @@ export const CROPS = [
   },
   {
     id: 'pole-bean', name: 'Pole Bean', emoji: '🫛', category: 'Legume',
-    tender: true, daysToMaturity: 65,
+    tender: true, daysToMaturity: 65, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 1, end: 28 },
     ],
@@ -113,7 +118,7 @@ export const CROPS = [
   },
   {
     id: 'corn', name: 'Sweet Corn', emoji: '🌽', category: 'Grain',
-    tender: true, daysToMaturity: 75,
+    tender: true, daysToMaturity: 75, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 1, end: 26 },
     ],
@@ -121,7 +126,7 @@ export const CROPS = [
   },
   {
     id: 'okra', name: 'Okra', emoji: '🌿', category: 'Fruiting vegetable',
-    tender: true, daysToMaturity: 60,
+    tender: true, daysToMaturity: 60, source: 'estimate',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 3, end: 30 },
     ],
@@ -129,7 +134,7 @@ export const CROPS = [
   },
   {
     id: 'southern-pea', name: 'Southern Pea (Cowpea)', emoji: '🫛', category: 'Legume',
-    tender: true, daysToMaturity: 65,
+    tender: true, daysToMaturity: 65, source: 'estimate',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: 3, end: 28 },
     ],
@@ -137,7 +142,7 @@ export const CROPS = [
   },
   {
     id: 'sweet-potato', name: 'Sweet Potato', emoji: '🍠', category: 'Root',
-    tender: true, daysToMaturity: 100,
+    tender: true, daysToMaturity: 100, source: 'estimate',
     windows: [
       { method: 'transplant', ref: 'LSF', start: 3, end: 16 },
     ],
@@ -145,7 +150,7 @@ export const CROPS = [
   },
   {
     id: 'basil', name: 'Basil', emoji: '🌿', category: 'Herb',
-    tender: true, daysToMaturity: 60,
+    tender: true, daysToMaturity: 60, source: 'standard',
     windows: [
       { method: 'start-indoors', ref: 'LSF', start: -6, end: -4 },
       { method: 'direct-sow', ref: 'LSF', start: 1, end: 28 },
@@ -156,7 +161,7 @@ export const CROPS = [
   // ---------------- Cool-season / frost-hardy ----------------
   {
     id: 'lettuce', name: 'Lettuce', emoji: '🥬', category: 'Leafy green',
-    tender: false, daysToMaturity: 50,
+    tender: false, daysToMaturity: 50, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -4, end: 2, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -16, end: -7, season: 'fall' },
@@ -165,7 +170,7 @@ export const CROPS = [
   },
   {
     id: 'spinach', name: 'Spinach', emoji: '🥬', category: 'Leafy green',
-    tender: false, daysToMaturity: 45,
+    tender: false, daysToMaturity: 45, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -6, end: -1, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -14, end: -6, season: 'fall' },
@@ -174,7 +179,7 @@ export const CROPS = [
   },
   {
     id: 'kale', name: 'Kale', emoji: '🥬', category: 'Brassica',
-    tender: false, daysToMaturity: 60,
+    tender: false, daysToMaturity: 60, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -5, end: -2, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -14, end: -8, season: 'fall' },
@@ -183,7 +188,7 @@ export const CROPS = [
   },
   {
     id: 'broccoli', name: 'Broccoli', emoji: '🥦', category: 'Brassica',
-    tender: false, daysToMaturity: 65,
+    tender: false, daysToMaturity: 65, source: 'standard',
     windows: [
       { method: 'transplant', ref: 'LSF', start: -5, end: -2, season: 'spring' },
       { method: 'transplant', ref: 'FFF', start: -15, end: -10, season: 'fall' },
@@ -192,7 +197,7 @@ export const CROPS = [
   },
   {
     id: 'cabbage', name: 'Cabbage', emoji: '🥬', category: 'Brassica',
-    tender: false, daysToMaturity: 70,
+    tender: false, daysToMaturity: 70, source: 'standard',
     windows: [
       { method: 'transplant', ref: 'LSF', start: -5, end: -2, season: 'spring' },
       { method: 'transplant', ref: 'FFF', start: -15, end: -10, season: 'fall' },
@@ -201,7 +206,7 @@ export const CROPS = [
   },
   {
     id: 'cauliflower', name: 'Cauliflower', emoji: '🥦', category: 'Brassica',
-    tender: false, daysToMaturity: 68,
+    tender: false, daysToMaturity: 68, source: 'standard',
     windows: [
       { method: 'transplant', ref: 'LSF', start: -5, end: -2, season: 'spring' },
       { method: 'transplant', ref: 'FFF', start: -15, end: -10, season: 'fall' },
@@ -210,7 +215,7 @@ export const CROPS = [
   },
   {
     id: 'pea', name: 'Garden / Snap Pea', emoji: '🫛', category: 'Legume',
-    tender: false, daysToMaturity: 60,
+    tender: false, daysToMaturity: 60, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -6, end: -1, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -12, end: -8, season: 'fall' },
@@ -219,7 +224,7 @@ export const CROPS = [
   },
   {
     id: 'carrot', name: 'Carrot', emoji: '🥕', category: 'Root',
-    tender: false, daysToMaturity: 70,
+    tender: false, daysToMaturity: 70, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -4, end: 1, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -13, end: -8, season: 'fall' },
@@ -228,7 +233,7 @@ export const CROPS = [
   },
   {
     id: 'beet', name: 'Beet', emoji: '🫜', category: 'Root',
-    tender: false, daysToMaturity: 55,
+    tender: false, daysToMaturity: 55, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -5, end: -1, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -11, end: -7, season: 'fall' },
@@ -236,8 +241,8 @@ export const CROPS = [
     notes: 'Greens and roots are both edible; thin seedlings to one per cluster.',
   },
   {
-    id: 'radish', name: 'Radish', emoji: '🌶️', category: 'Root',
-    tender: false, daysToMaturity: 28,
+    id: 'radish', name: 'Radish', emoji: '🌱', category: 'Root',
+    tender: false, daysToMaturity: 28, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -4, end: 1, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -9, end: -4, season: 'fall' },
@@ -246,7 +251,7 @@ export const CROPS = [
   },
   {
     id: 'swiss-chard', name: 'Swiss Chard', emoji: '🥬', category: 'Leafy green',
-    tender: false, daysToMaturity: 55,
+    tender: false, daysToMaturity: 55, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -3, end: 2, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -13, end: -8, season: 'fall' },
@@ -255,7 +260,7 @@ export const CROPS = [
   },
   {
     id: 'turnip', name: 'Turnip', emoji: '🫜', category: 'Root',
-    tender: false, daysToMaturity: 50,
+    tender: false, daysToMaturity: 50, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -4, end: -1, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -10, end: -6, season: 'fall' },
@@ -264,7 +269,7 @@ export const CROPS = [
   },
   {
     id: 'cilantro', name: 'Cilantro', emoji: '🌿', category: 'Herb',
-    tender: false, daysToMaturity: 50,
+    tender: false, daysToMaturity: 50, source: 'standard',
     windows: [
       { method: 'direct-sow', ref: 'LSF', start: -3, end: 2, season: 'spring' },
       { method: 'direct-sow', ref: 'FFF', start: -11, end: -6, season: 'fall' },
@@ -273,7 +278,7 @@ export const CROPS = [
   },
   {
     id: 'onion', name: 'Onion', emoji: '🧅', category: 'Allium',
-    tender: false, daysToMaturity: 100,
+    tender: false, daysToMaturity: 100, source: 'standard',
     windows: [
       { method: 'transplant', ref: 'LSF', start: -4, end: -1, season: 'spring' },
     ],
@@ -281,7 +286,7 @@ export const CROPS = [
   },
   {
     id: 'garlic', name: 'Garlic', emoji: '🧄', category: 'Allium',
-    tender: false, daysToMaturity: 240,
+    tender: false, daysToMaturity: 240, source: 'standard',
     windows: [
       { method: 'plant-cloves', ref: 'FFF', start: -6, end: 2, season: 'fall' },
     ],
