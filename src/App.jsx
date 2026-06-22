@@ -7,6 +7,9 @@ import { useAtmosphere } from './hooks/useAtmosphere'
 import { Sidebar } from './components/Sidebar'
 import { LocationSelector } from './components/LocationSelector'
 import { InstallPrompt } from './components/InstallPrompt'
+import { PlantingCalendarView } from './components/views/PlantingCalendarView'
+import { GardenJournalView } from './components/views/GardenJournalView'
+import { MoonPlantingView } from './components/views/MoonPlantingView'
 import { TodayView } from './components/views/TodayView'
 import { HistoryView } from './components/views/HistoryView'
 import { AtmosphereView } from './components/views/AtmosphereView'
@@ -14,7 +17,7 @@ import { PatternsView } from './components/views/PatternsView'
 import { StatsView } from './components/views/StatsView'
 
 function App() {
-  const [currentView, setCurrentView] = useState('today')
+  const [currentView, setCurrentView] = useState('planting')
 
   // Location state
   const { location, setLocation } = useLocationStore()
@@ -71,6 +74,12 @@ function App() {
   // Render the current view
   const renderView = () => {
     switch (currentView) {
+      case 'planting':
+        return <PlantingCalendarView />
+      case 'journal':
+        return <GardenJournalView />
+      case 'moon':
+        return <MoonPlantingView />
       case 'today':
         return <TodayView />
       case 'history':
@@ -89,12 +98,15 @@ function App() {
   // Get view title for mobile
   const getViewTitle = () => {
     switch (currentView) {
+      case 'planting': return 'Planting Calendar'
+      case 'journal': return 'Garden Journal'
+      case 'moon': return 'Moon Planting'
       case 'today': return 'Today'
       case 'history': return 'History'
       case 'atmosphere': return 'Atmosphere'
       case 'patterns': return 'Patterns'
       case 'stats': return 'Statistics'
-      default: return 'Dawn Tracker'
+      default: return 'Garden Almanac'
     }
   }
 
@@ -105,9 +117,9 @@ function App() {
         <div className="h-full px-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <h1 className="text-xl md:text-2xl font-bold text-white">
-              Dawn Tracker
+              Garden Almanac
             </h1>
-            <span className="hidden md:inline text-xs text-gray-500">Solar & Lunar Almanac</span>
+            <span className="hidden md:inline text-xs text-gray-500">Personal Gardening Almanac</span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -118,6 +130,9 @@ function App() {
                 onChange={(e) => setCurrentView(e.target.value)}
                 className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-200"
               >
+                <option value="planting">Planting Calendar</option>
+                <option value="journal">Garden Journal</option>
+                <option value="moon">Moon Planting</option>
                 <option value="today">Today</option>
                 <option value="history">History</option>
                 <option value="atmosphere">Atmosphere</option>

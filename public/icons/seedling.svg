@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Garden Almanac">
+  <rect width="512" height="512" rx="96" fill="#0f172a"/>
+  <path d="M256 410 V250" stroke="#4ade80" stroke-width="22" stroke-linecap="round"/>
+  <path d="M254 272 C 254 198, 196 166, 142 172 C 142 238, 198 280, 254 272 Z" fill="#22c55e"/>
+  <path d="M258 292 C 258 214, 318 184, 372 190 C 372 256, 316 300, 258 292 Z" fill="#16a34a"/>
+  <circle cx="256" cy="430" r="10" fill="#4ade80"/>
+</svg>

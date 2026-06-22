@@ -4,6 +4,9 @@
  */
 export function Sidebar({ currentView, onViewChange }) {
   const navItems = [
+    { id: 'planting', label: 'Planting Calendar', icon: SproutIcon },
+    { id: 'journal', label: 'Garden Journal', icon: JournalIcon },
+    { id: 'moon', label: 'Moon Planting', icon: MoonIcon },
     { id: 'today', label: 'Today', icon: SunIcon },
     { id: 'history', label: 'History', icon: CalendarIcon },
     { id: 'atmosphere', label: 'Atmosphere', icon: CloudIcon },
@@ -43,7 +46,7 @@ export function Sidebar({ currentView, onViewChange }) {
       {/* Footer */}
       <div className="p-4 border-t border-gray-800/50">
         <div className="text-xs text-gray-600 text-center">
-          Dawn Tracker v1.0
+          Garden Almanac
         </div>
       </div>
     </aside>
@@ -51,6 +54,30 @@ export function Sidebar({ currentView, onViewChange }) {
 }
 
 // Icons
+function SproutIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21v-6m0 0c0-3-2-5-5-5H5v1c0 3 2 5 5 5h2zm0 0c0-3.5 2.5-6 6-6h1v1c0 3.5-2.5 5-6 5h-1z" />
+    </svg>
+  )
+}
+
+function JournalIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+    </svg>
+  )
+}
+
+function MoonIcon({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+  )
+}
+
 function SunIcon({ className }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
